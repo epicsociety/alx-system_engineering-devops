@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This is a while loop that displays "Best School" 10 times
+
+number=0
+while [ $number -lt 10 ]
+do
+        echo "Best School"
+	number=$(( number + 1))
+done
