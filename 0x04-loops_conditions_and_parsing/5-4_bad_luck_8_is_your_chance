@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#using if, elif and else to display different words
+
+number=1
+while [ $number -le 10 ]
+do
+    if [ $number -eq 4 ]; then
+        echo "bad luck"
+    elif [ $number -eq 8 ]; then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+number=$(( number + 1 ))
+done

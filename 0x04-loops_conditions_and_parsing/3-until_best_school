@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This until loop that displays "Best School" 10 times
+
+number=1
+until [ $number -gt 10 ]
+do
+        echo "Best School"
+	number=$(( number + 1))
+done
