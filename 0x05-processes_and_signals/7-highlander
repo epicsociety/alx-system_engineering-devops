@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# displays a message indefinitely
+# traps a signal and displays another message
+# loop continues
+
+number=1
+while [ $number -gt 0 ]; do
+    echo "To infinity and beyond"
+    number=$(( number + 1 ))
+    sleep 2
+    trap 'echo "I am invincible!!!"' SIGTERM
+done
