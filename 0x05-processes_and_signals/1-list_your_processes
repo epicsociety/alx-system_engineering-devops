@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # displays a list of my processes
+# Show process hierarchy
 
-ps aux
+ps -auxf
