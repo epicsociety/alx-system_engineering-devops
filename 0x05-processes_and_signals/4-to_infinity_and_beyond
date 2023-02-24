@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# prints a messag indefinitely
+
+number=1
+while [ $number -gt 0 ]; do
+    echo "To infinity and beyond"
+    number=$(( number + 1 ))
+    sleep 2
+done
