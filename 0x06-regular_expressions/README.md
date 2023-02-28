@@ -1,0 +1,3 @@
+use the regular expression \b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b to search for an email address. Any email address, to be exact. A very similar regular expression (replace the first \b with ^ and the last one with $) can be used by a programmer to check whether the user entered a properly formatted email address.
+You can use them in powerful search and replace operations to quickly make changes across large numbers of files. A simple example is gr[ae]y which finds both spellings of the word gray in one operation, instead of two
+you can use the backreference \1 to match the same text that was matched by the capturing group. ([abc])=\1 matches a=a, b=b, and c=c.
