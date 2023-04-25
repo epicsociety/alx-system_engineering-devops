@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # fix things to make aoache run on 125-0 Docker container
 # add server name to Apache configuration file
-echo "ServiceName localhost" >> /etc/apache2/apache2.conf
+echo "ServiceName localhost" >> /etc/apache2.conf
 # start Apache
 service apache2 start
