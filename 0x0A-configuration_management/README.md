@@ -1,0 +1,3 @@
+# server configuration with puppet
+
+
