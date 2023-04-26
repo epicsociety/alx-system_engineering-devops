@@ -12,11 +12,8 @@ file { 'index.html':
     content => 'Hello World!"
 }
 
-file_line { 'redir':
-    ensure => 'present',
-    path   => '/etc/nginx/sites-available/default',
-
 nginx::resource::server { 'epicsociety.tech':
+    path   => '/etc/nginx/sites-available/default',
     listen_port => '80',
     server_name => 'epicsociety.tech',
     location => [
