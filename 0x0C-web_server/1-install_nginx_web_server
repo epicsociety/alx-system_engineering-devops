@@ -3,8 +3,7 @@
 # When querying Nginx at its root / with a GET request (requesting a page) using curl,
 # It must return a page that contains the string Hello World!
 
-apt-get update -y
-apt-get install nginx -y
-touch /var/www/html/index.html
-echo "Hello World" > /var/www/html/index.html
+sudo apt-get update -y
+sudo apt-get install nginx -y
+echo 'Hello World!' | sudo tee /var/www/html/index.html
 sudo service nginx start
