@@ -7,20 +7,30 @@ package { 'nginx':
 }
 
 file { 'index.html':
-    path => 'var/www/html/index.html',
-    ensure => present,
+    ensure  => present,
+    path    => 'var/www/html/index.html',
     content => 'Hello World!"
 }
 
 file_line { 'redir':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
-    after => 'listen 80 default_server;',
-    line => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=J---aiyznGQ  permanent;',
+
+nginx::resource::server { 'epicsociety.tech':
+    listen_port => '80',
+    server_name => 'epicsociety.tech',
+    location => [
+    {
+        location => '/redirect_me',
+        rewrite => [
+            rewrite "^/redirect_me" "https://www.youtube.com/watch?v=J---aiyznGQ" permanent;',
+        ],
+    },
+    ],
 }
 
 service { 'nginx':
-    ensure => running,
+    ensure  => running,
     restart => true,
     require => Package['nginx']
 }
