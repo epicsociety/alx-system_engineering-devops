@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# installs HAproxy to the loadbalancer server
+# configure HAprocy to send traffic to both web-01 and web-02 servers
+# distribute traffic through the roundrobin algorithm
+# ensures HAproxy can be managed via an init script
+
+sudo apt update
+sudo apt install haproxy -y
+sudo cp /etc/default/haproxy /etc/default/haproxy.bkp
+echo "ENABLED=1" | sudo tee /etc/default/haproxy
+sudo sed -i "$ a\\\nlisten bakxy\n\tbind *:80\n\tmode http\n\tbalance roundrobin\n\tserver 170717-web-01 100.26.236.5:80 check\n\tserver 170717-web-02 100.25.144.135:80 check" /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
