@@ -4,8 +4,8 @@
 
 # install nginx
 apt-get update
-apt-get install -y nginx
-sudo mkdir /var/www/error
+apt-get install nginx -y
+mkdir /var/www/error
 
 echo "Hello World!" | sudo tee /var/www/html/index.html
 echo -e "Ceci n'est pas une page" | sudo tee /var/www/error/custom_404.html
