@@ -14,7 +14,7 @@ file { 'index.html':
 
 nginx::resource::server { 'epicsociety.tech':
     path   => '/etc/nginx/sites-available/default',
-    listen_port => '80',
+    listen_port => '85',
     server_name => 'epicsociety.tech',
     location => [
     {
