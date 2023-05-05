@@ -29,5 +29,5 @@ nginx::resource::server { 'epicsociety.tech':
 service { 'nginx':
     ensure  => running,
     restart => true,
-    require => Package['nginx']
+    require => Package['nginx'],
 }
