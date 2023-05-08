@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Displays information about provided subdomains
+function domain_record {
+	subdomains=("www" "lb-01" "web-01" "web-02")
+
+	for i in "${subdomains[@]}";
+	do
+		dig "${i}"."$1" | grep -A1 'ANSWER SECTION:' | \
+		awk 'FNR == 2 {printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$i"
+
+	done
+}
+
+function subdomain_record {
+	dig "${2}"."$1" | grep -A1 'ANSWER SECTION:' | \
+	awk 'FNR == 2 {printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$2"
+}
+
+if [ $# -lt 1 ]
+then
+	echo "*** Provide domain name ***"
+elif [ $# -eq 1 ]
+then
+	domain_record "$1";
+else
+	subdomain_record "$1" "$2";
+fi
