@@ -4,7 +4,7 @@ file { 'Nginx server config file':
   path   => '/etc/nginx/sites-available/default',
   mode   => '0744',
   owner  => 'www-data',
-  contet =>
+  content =>
 "server {
 			listen 80 default_server;
 			listen [::]:80 default_server;
