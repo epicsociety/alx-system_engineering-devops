@@ -15,15 +15,15 @@ file { 'Nginx server config file':
 			location /custom_404.html {
 					root /var/www/error;
 					internal;
-					add_header X-Served-By \$HOSTNAME;
+					add_header X-Served-By \$hostname;
 			}
 			location / {
 					try_files \$uri \$uri/ =404;
-					add_header X-Served-By \$HOSTNAME;
+					add_header X-Served-By \$hostname;
 			}
 			location /redirect_me/ {
 					rewrite ^(.*)$ http://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-					add_header X-Served-By \$HOSTNAME;
+					add_header X-Served-By \$hostname;
 			}
 }"
 }
