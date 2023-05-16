@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
-# run nginx as nginx; to prevent root access priviledgesi
-sudo fuser -k 80/tcp
-
-sudo fuser -k 443/tcp
-
-sudo -H apt-get  purge  nginx-common  nginx-full
-
-sudo -H apt-get  install  nginx-common  nginx-full
-
-sed -i 's/user\s*\(.*\);/user nginx;/' /etc/nginx/nginx.conf
-sed -i 's/listen\s*\(.*\);/listen 8080;/' /etc/nginx/sites-available/default
+# nginx as nginx non-root user
+usermod -u 1000 nginx
+chown -R nginx:nginx /var/cache/nginx/
+sed -i 's/user  nginx;/user  nginx;/' /etc/nginx/nginx.conf
+sed -i 's/listen       80;/listen       8080;/' /etc/nginx/nginx.conf
 service nginx restart
