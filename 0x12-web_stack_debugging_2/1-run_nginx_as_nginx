@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 # nginx as nginx non-root user
-usermod -u 1000 nginx
-chown -R nginx:nginx /var/cache/nginx/
-sed -i 's/user  nginx;/user  nginx;/' /etc/nginx/nginx.conf
-sed -i 's/listen       80;/listen       8080;/' /etc/nginx/nginx.conf
-service nginx restart
+sudo apt-get purge -y nginx
+sudo apt-get install -y nginx
+
+# Change nginx user to nginx in nginx.conf
+sudo sed -i 's/user www-data;/user nginx;/' /etc/nginx/nginx.conf
+
+# Change listen directive to port 8080 in the default server block
+sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
+sudo sed -i 's/listen [::]:80 default_server;/listen [::]:8080 default_server;/' /etc/nginx/sites-available/default
+
+# Test nginx configuration and restart the service
+sudo nginx -t && sudo service nginx restart
