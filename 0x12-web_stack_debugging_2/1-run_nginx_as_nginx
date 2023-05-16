@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-# run nginx as nginx; to prevent root access priviledges
+# run nginx as nginx; to prevent root access priviledgesi
+sudo fuser -k 80/tcp
+
+sudo fuser -k 443/tcp
+
+sudo -H apt-get  purge  nginx-common  nginx-full
+
+sudo -H apt-get  install  nginx-common  nginx-full
+
 sed -i 's/user\s*\(.*\);/user nginx;/' /etc/nginx/nginx.conf
 sed -i 's/listen\s*\(.*\);/listen 8080;/' /etc/nginx/sites-available/default
 service nginx restart
