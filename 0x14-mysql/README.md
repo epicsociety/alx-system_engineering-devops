@@ -47,11 +47,9 @@ Update the MySQL Primary Configuration (web-01)
    b. Locate the bind-address parameter in the configuration file and comment it out by adding a '#' symbol at the beginning of the line. This allows MySQL to listen on all available network interfaces.
    c. Add the following configuration options at the end of the file to enable replication:
    
-   ```
    server-id = 1
    log_bin = /var/log/mysql/mysql-bin.log
    binlog_do_db = tyrell_corp
-   ```
    
  The server-id uniquely identifies the primary server. The log_bin option enables binary logging, which is necessary for replication. The binlog_do_db option specifies the database to be replicated.
 d. Save the changes to the configuration file.
