@@ -4,9 +4,11 @@ if [ $# -eq 0 ]; then
     exit 1
 fi 
 
-backup_file="backup.sql"
-compressed_file="$(date +%d-%m-%Y).tar.gz"
+backup_dir="$PWD"
+
+backup_file="$backup_dir/backup.sql"
+compressed_file="$backup_dir/$(date +%d-%m-%Y).tar.gz"
 
 mysqldump -u root -p"$1" --all-databases > "$backup_file"
-tar -czvf "$compressed_file" "$backup_file"
-rm "$backup_file"
+tar -czvf "$compressed_file" -C "$backup_dir" backup.sql
+# rm "$backup_file"
