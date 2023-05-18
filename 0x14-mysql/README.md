@@ -39,7 +39,7 @@ FLUSH PRIVILEGES;
 ```
 
 ## Setting up replication for the MySQL database named "tyrell_corp" with the primary hosted on web-01 and the replica hosted on web-02
-> There instructions are as precise as possible
+> These instructions are as precise as possible
 
 Update the MySQL Primary Configuration (web-01)
 
