@@ -60,7 +60,7 @@ e. Restart the MySQL service to apply the changes:
   sudo service mysql restart
   ```
   
-   **  Update the MySQL Replica Configuration (web-02): **
+   **  Update the MySQL Replica Configuration (web-02): ** 
         a. Open the MySQL configuration file for editing, which should be the same as the primary server.
         b. Locate the bind-address parameter in the configuration file and ensure it is set to the IP address or hostname of web-02. This specifies the network interface on which MySQL should listen.
         c. Add the following configuration options at the end of the file to enable replication:
@@ -79,7 +79,7 @@ The server-id uniquely identifies the replica server. The relay_log option speci
         sudo service mysql restart
         ```
         
-   ** Grant Replication Privileges on Primary: **
+   ** Grant Replication Privileges on Primary: ** 
    a. Log in to the primary MySQL server (web-01) as a user with administrative privileges, such as the 'root' user.
    b. Run the following commands to grant replication privileges to the replica:
         
@@ -98,7 +98,7 @@ The server-id uniquely identifies the replica server. The relay_log option speci
         ```
         
    c. Take note of the values for the File and Position fields. You will need these values to configure the replica.
-   ** Configure Replication on the Replica: **
+   ** Configure Replication on the Replica: ** 
    a. Log in to the replica MySQL server (web-02) as a user with administrative privileges, such as the 'root' user.
    b. Run the following command to configure replication on the replica:
         ```
@@ -113,7 +113,7 @@ The server-id uniquely identifies the replica server. The relay_log option speci
  
 > Look for the `Slave_IO_Running` and `Slave_SQL_Running` fields in the output. Both should display 'Yes', indicating that replication is functioning correctly.
 
-**  Allow MySQL Port (3306) through UFW: **
+**  Allow MySQL Port (3306) through UFW: ** 
 a. If UFW (Uncomplicated Firewall) is enabled on both web-01 and web-02, you need to allow incoming connections on the MySQL port (3306) for replication.
 b. Run the following command on both web-01 and web-02 to enable MySQL connections:
     ``` sudo ufw allow 3306 ```
