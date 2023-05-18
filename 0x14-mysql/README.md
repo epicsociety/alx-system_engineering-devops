@@ -120,3 +120,4 @@ sudo ufw allow 3306
 ```
 sudo ufw status
 ```
+You did it 😂😂
