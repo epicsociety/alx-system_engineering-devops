@@ -41,7 +41,7 @@ FLUSH PRIVILEGES;
 ## Setting up replication for the MySQL database named "tyrell_corp" with the primary hosted on web-01 and the replica hosted on web-02
 > These instructions are as precise as possible
 
-> ### Update the MySQL Primary Configuration (web-01)
+### Update the MySQL Primary Configuration (web-01)
 
 - a. Open the MySQL configuration file for editing. The file is typically located at /etc/mysql/mysql.conf.d/mysqld.cnf or /etc/my.cnf.
 - b. Locate the bind-address parameter in the configuration file and comment it out by adding a '#' symbol at the beginning of the line. This allows MySQL to listen on all available network interfaces.
