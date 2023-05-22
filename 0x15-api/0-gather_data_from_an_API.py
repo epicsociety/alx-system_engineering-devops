@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-""" use the REST API to retrive info abou employee """
+"""use the REST API to retrive info abou employee"""
 
-import sys
 import requests
+import sys
 import urllib3
 
 # Disable the InsecureRequestWarning
@@ -11,7 +11,8 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def get_employee_todo_progress(employee_id):
     """ get employee todo list, get completed tasks
-    Args (int): employee_id
+    Args (int):
+        employee_id
     Returns: string
     """
 
