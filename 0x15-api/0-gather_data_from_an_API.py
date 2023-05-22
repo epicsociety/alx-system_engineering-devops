@@ -3,6 +3,10 @@
 
 import sys
 import requests
+import urllib3
+
+# Disable the InsecureRequestWarning
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def get_employee_todo_progress(employee_id):
@@ -10,20 +14,21 @@ def get_employee_todo_progress(employee_id):
     Args (int): employee_id
     Returns: string
     """
-    url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
-    response = requests.get(url)
-    todos = response.json()
+
+    employees = requests.get("https://jsonplaceholder.typicode.com/users/",
+                             verify=False).json()
+    todos = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
+                 .format(employee_id), verify=False).json()
+
+    for employee in employees:
+        if employee.get('id') == employee_id:
+            employee_name = employee.get("name")
+            break
 
     completed_tasks = []
     for todo in todos:
         if todo.get('completed'):
             completed_tasks.append(todo.get('title'))
-
-    employee_name = None
-    for todo in todos:
-        if todo.get('userId') == employee_id:
-            employee_name = todo.get('username')
-            break
 
     total_tasks = len(todos)
     done_tasks = len(completed_tasks)
