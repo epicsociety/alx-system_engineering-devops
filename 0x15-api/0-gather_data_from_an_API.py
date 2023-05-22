@@ -18,7 +18,7 @@ def get_employee_todo_progress(employee_id):
     employees = requests.get("https://jsonplaceholder.typicode.com/users/",
                              verify=False).json()
     todos = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
-                 .format(employee_id), verify=False).json()
+                         .format(employee_id), verify=False).json()
 
     for employee in employees:
         if employee.get('id') == employee_id:
