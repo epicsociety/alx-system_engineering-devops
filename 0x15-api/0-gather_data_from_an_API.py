@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""use the REST API to retrive info abou employee"""
+"""
+use the REST API to retrive info about employee
+"""
 
 import requests
 import sys
