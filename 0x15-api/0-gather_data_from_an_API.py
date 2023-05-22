@@ -6,6 +6,10 @@ import requests
 
 
 def get_employee_todo_progress(employee_id):
+    """ get employee todo list, get completed tasks
+    Args (int): employee_id
+    Returns: string
+    """
     url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
     response = requests.get(url)
     todos = response.json()
