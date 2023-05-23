@@ -36,7 +36,7 @@ def employee_info_to_json():
         mydict = {}
         emp_id = todo.get('userId')
         mydict['username'] = dict_users[emp_id]
-        mydict['tasks'] = todo.get("title")
+        mydict['task'] = todo.get("title")
         mydict['completed'] = todo.get("completed")
         dict_Id.get(emp_id).append(mydict)
 
