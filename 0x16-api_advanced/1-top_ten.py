@@ -20,7 +20,7 @@ def top_ten(subreddit):
 
             for i in range(min(len(posts), 10)):
                 title = posts[i]['data']['title']
-                print("{}. {}".format(i+1, title))
+                print("{}".format(title))
         except (KeyError, ValueError):
             pass
     else:
