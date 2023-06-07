@@ -11,7 +11,7 @@ def count_words(subreddit, word_list, after=None, word_dict=None):
     if word_dict is None:
         word_dict = {}
 
-    base_url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    base_url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     params = {'limit': 100, 'after': after} if after else {'limit': 100}
     headers = {'User-Agent': 'Custom User-Agent'}
     response = requests.get(base_url, headers=headers, params=params)
