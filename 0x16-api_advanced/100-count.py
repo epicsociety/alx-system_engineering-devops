@@ -1,41 +1,46 @@
 #!/usr/bin/python3
-""" Using recursive function to get the wordlist"""
+""" module contains a recursive function that prints a word list with number of
+times it occurred"""
 
 
-import requests as request
+import requests
 
 
-def count_words(subreddit, word_list, count_dict=None, after=None):
+def count_words(subreddit, word_list, after=None, word_dict=None):
+    """ a recursive function """
+    if word_dict is None:
+        word_dict = {}
+
+    base_url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    params = {'limit': 100, 'after': after} if after else {'limit': 100}
     headers = {'User-Agent': 'Custom User-Agent'}
-    if count_dict is None:
-        count_dict = {}
-
-    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    params = {'after': after} if after else None
-    response = request.get(url, headers=headers, params=params)
+    response = requests.get(base_url, headers=headers, params=params)
 
     if response.status_code == 200:
-        try:
-            data = response.json()
-            posts = data['data']['children']
+        data = response.json()
+        posts = data['data']['children']
 
-            for post in posts:
-                title = post['data']['title']
-                for word in word_list:
-                    count = title.lower().count(word.lower())
-                    if count > 0:
-                        count_dict[word] = count_dict.get(word, 0) + count
-            after = data['data']['after']
-            if after:
-                return count_words(subreddit, word_list,
-                                   count_dict, after=after)
-            else:
-                sorted_counts = sorted(count_dict.items(), key=lambda x:
-                                       (-x[1], x[0]))
-                for word, count in sorted_counts:
-                    print('{}: {}'.format(word.lower(), count))
+        for post in posts:
+            title = post['data']['title'].lower()
+            for word in word_list:
+                if (
+                    word.lower() in title
+                    and not title.startswith(word.lower() + ' ')
+                    and not title.endswith(' ' + word.lower())
+                    and not title.startswith(word.lower() + '.')
+                    and not title.endswith('.' + word.lower())
+                    and not title.startswith('{' + word.lower() + '!')
+                    and not title.endswith('!' + word.lower() + '}')
+                ):
+                    word_dict[word] = word_dict.get(word, 0) + 1
 
-        except (KeyError, ValueError):
-            pass
+        after = data['data']['after']
+        if after:
+            count_words(subreddit, word_list, after, word_dict)
+        else:
+            sorted_counts = sorted(word_dict.items(),
+                                   key=lambda x: (x[0].lower()))
+            for word, count in sorted_counts:
+                print('{}: {}'.format(word.lower(), count))
 
     return
