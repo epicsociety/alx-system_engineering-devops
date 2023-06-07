@@ -2,8 +2,10 @@
 """ module contain a recursive function that returns a key value list of words
 and count """
 
-import requests
+
 import re
+import requests
+
 
 
 def count_words(subreddit, word_list, after=None, word_dict=None):
