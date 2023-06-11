@@ -1,5 +1,5 @@
 <div style="display: flex; align-items: center;">
-  <p style="margin-right: 10px;">Text on the left</p>
+  <p style="margin-right: 10px;">Server-Downtime :bangbang:</p>
   <img src="https://usagif.com/wp-content/uploads/2021/06/acegif-com-sweating-48.gif" alt="Server-Downtime" width="300" height="200" />
 </div>
 
