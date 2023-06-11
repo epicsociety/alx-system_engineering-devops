@@ -25,11 +25,15 @@
 
 # Root Cause and Resolution:
 
+---
+
 The root cause of the web stack outage was the incompatibility between the uploaded code and the outdated version of the database server. The code required certain dependencies that were not supported by the older server version. As a result, the server encountered errors while trying to execute the code, leading to service downtime.
 
 To resolve the issue, the database administration team recommended upgrading the server to a compatible version. However, due to limited resources and immediate restoration requirements, the web development team decided to apply a patch to modify the code and make it compatible with the older server version. This temporary fix allowed the application to function properly without upgrading the server.
 
 # Corrective and Preventative Measures:
+
+---
 
 To prevent similar incidents in the future, the following measures will be implemented:
 
@@ -40,6 +44,8 @@ To prevent similar incidents in the future, the following measures will be imple
 - **_Documentation and Communication:_** Improve documentation and communication channels between teams to ensure that the dependencies and requirements of code deployments are clearly communicated and understood.
 
 # Tasks to Address the Issue:
+
+---
 
 - **_Upgrade Database Server:_** Schedule and perform an upgrade of the database server to a compatible version, ensuring minimal disruption to the web service.
 
