@@ -15,18 +15,19 @@
 
 ---
 
-**Time** | **Event**
-10:00 AM: | Issue detected when users started reporting errors and inability to access the web application.
-10:05 AM: | Monitoring system alerted the team about increased error rates and server response times.
-10:10 AM: | The team investigated the load balancer logs and noticed a spike in 500 server errors.
-10:15 AM: |Assumed the issue might be related to the code deployment and began investigating the recently uploaded code.
-10:25 AM: | Observed that the code had additional dependencies that required a recent version of the database server.
-10:30 AM: | Initially suspected a misconfiguration in the code deployment process and verified all configuration files.
-10:40 AM: | Realized that the database server version was outdated and incompatible with the dependencies in the code.
-10:45 AM: | Incident escalated to the database administration team for further investigation and assistance.
-11:00 AM: | The database administration team confirmed the incompatibility issue and recommended upgrading the server.
-11:15 AM: | The web development team applied a patch to make the code compatible with the older database server version.
-11:30 AM: | The code deployment was successful, and the web service was restored.
+| **Time** | **Event** |
+| -------- | --------- |
+| 10:00 AM: | Issue detected when users started reporting errors and inability to access the web application. |
+| 10:05 AM: | Monitoring system alerted the team about increased error rates and server response times. |
+| 10:10 AM: | The team investigated the load balancer logs and noticed a spike in 500 server errors. |
+| 10:15 AM: | Assumed the issue might be related to the code deployment and began investigating the recently uploaded code. |
+| 10:25 AM: | Observed that the code had additional dependencies that required a recent version of the database server. |
+| 10:30 AM: | Initially suspected a misconfiguration in the code deployment process and verified all configuration files. |
+| 10:40 AM: | Realized that the database server version was outdated and incompatible with the dependencies in the code. |
+| 10:45 AM: | Incident escalated to the database administration team for further investigation and assistance. |
+| 11:00 AM: | The database administration team confirmed the incompatibility issue and recommended upgrading the server. |
+| 11:15 AM: | The web development team applied a patch to make the code compatible with the older database server version. |
+| 11:30 AM: | The code deployment was successful, and the web service was restored.
 
 # Root Cause and Resolution:
 
