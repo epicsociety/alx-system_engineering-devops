@@ -5,4 +5,4 @@ exec { 'change-os-configuration-for-holberton-user':
 sed -iE 's/^holberton soft nofile \
 4/holberton soft nofile 88888/' /etc/security/limits.conf\"",
   path    => '/usr/bin:/usr/sbin:/bin'
-
+}
