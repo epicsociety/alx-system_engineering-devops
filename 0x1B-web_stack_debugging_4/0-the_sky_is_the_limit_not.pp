@@ -1,5 +1,4 @@
 # fixing nginx
-
 { 'nginx-debug':
   command => 'bash',
   unless  => "grep -q '^ULIMIT=\"-n 8192\"' /etc/default/nginx",
